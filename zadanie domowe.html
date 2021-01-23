@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class='one'></div>
+    <div class='two'></div>
+    <div class='three'></div>
+    <div class='four'></div>
+    <div class='five'></div>
+    <div class='six'></div>
+    <div class='seven'></div>
+    
+
+   <script>
+     //// Zad 1////
+const whatType = (number) => {
+  document.querySelector(".one").textContent = typeof number;
+};
+
+whatType(1);
+
+//// Zad 2////
+let arr = [];
+const twistIt = (arr) => {
+  document.querySelector(".two").textContent = arr.reverse();
+};
+
+twistIt(["1", "2", "3", "4", "5"]);
+
+/// Zad 3////
+
+const triangleNumber=(n)=>{
+// Tn = n(n-1)/2
+const Tn = n*(n+1)/2;
+
+document.querySelector(".three").textContent = Tn
+}
+
+triangleNumber(4)
+
+
+
+
+/// Zad 4////
+let string = 'DOG'
+let findPermutations = (string) => {
+
+if(!string || typeof string !== "string"){
+    return "Please enter a string"
+} else if (string.length <2){
+    return string
+}
+
+let permutationsArray = [] 
+
+for (let i = 0; i < string.length; i++){
+ let char = string[i];
+ let remainingChar = string.slice(0, i) + string.slice(i+1,string.length);
+
+ for (let permutation of findPermutations(remainingChar)){
+      permutationsArray.push(char + permutation) }
+  }
+return permutationsArray;
+
+}
+
+document.querySelector(".four").textContent = 
+findPermutations(string);
+
+/// Zad 5 ////
+const alfabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' '];
+const message = 'Hello World'.toLowerCase();
+
+const cezarCode = (message)=>{
+    for(let i=0; i<message.length;i++){
+        if(message[i]== ' '){
+            document.querySelector('.five').textContent += ' ';}
+            else{
+                const index = alfabet.findIndex(letter => letter == message[i]);  
+               document.querySelector('.five').textContent += alfabet[index+1]
+            }
+         
+        }
+        
+
+    }
+ 
+
+
+cezarCode(message)
+
+
+//// Zad 6 ///
+
+// Ln= 2^n -1;
+
+const hanoiTower=(n)=>{
+const moves = Math.pow(2,n) - 1;
+console.log(moves);
+document.querySelector('.six').textContent = moves;
+}
+
+hanoiTower(5)
+
+
+/// Zad 7///
+let flatArr = [['1','2'],['3','4']];
+let newArr = [];
+const flatten = ()=> {
+for(let i = 0; i< flatArr.length; i++ ){
+    newArr.push(flatArr[i]);
+}
+document.querySelector('.seven').textContent = newArr;
+}
+
+flatten(flatArr)
+
+   </script> 
+</body>
+</html>
