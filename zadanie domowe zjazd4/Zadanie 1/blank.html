@@ -1,0 +1,77 @@
+<!-- Zadanie 1
+---
+
+Stwórz formularz pozwalający na skonfigurowanie a następnie otworzenie
+nowego okna przeglądarki z podanymi przez użytkownika atrybutami, takimi
+jak adres, nazwa, rozmiar, itp. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zad 1</title>
+    <style>
+            div{
+             
+                width: 70vw;
+                margin: 0 auto;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            li{
+                list-style-type: none;
+                padding: 10px;
+                border: 1px solid black;
+            }
+    </style>
+</head>
+<body>
+  <div>
+      <ul>
+
+      </ul>
+  </div>
+
+
+<script>
+      const localSt = JSON.parse(localStorage.getItem('key'));
+       console.log(localSt);
+       const name = document.createElement('li');
+       document.querySelector('ul').appendChild(name);
+       name.textContent = `Name: ${localSt.name}`;
+
+       const age = document.createElement('li');
+       document.querySelector('ul').appendChild(age);
+       age.textContent = `Age: ${localSt.age}`;
+
+       
+       const city = document.createElement('li');
+       document.querySelector('ul').appendChild(city);
+       city.textContent = `City: ${localSt.city}`;
+       
+       const street = document.createElement('li');
+       document.querySelector('ul').appendChild(street);
+       street.textContent = `Street: ${localSt.street}`;
+
+       
+       const streetNumber = document.createElement('li');
+       document.querySelector('ul').appendChild(streetNumber);
+       streetNumber.textContent = `Street number: ${localSt.streetNumber}`;
+
+       
+       const email = document.createElement('li');
+       document.querySelector('ul').appendChild(email);
+       email.textContent = `E-mail: ${localSt.email}`;
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
+
