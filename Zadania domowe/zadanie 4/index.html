@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll</title>
+    <style>
+        .container{
+            margin: 0;
+            width: 100vw;
+            height: 2000vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- Napisz skrypt dynamicznie zmieniający tło strony podczas scrollowania. -->
+<div class="container">
+
+</div>
+
+    <script>
+const container = document.querySelector('.container');
+    let r=50;
+    let g=50;
+    let b=50;  
+    
+    setInterval(() => {
+       r = Math.floor(Math.random()*256);
+    g = Math.floor(Math.random()*256);
+    b = Math.floor(Math.random()*256);
+
+ }, 3000);
+function changeBackgroundColor(){
+
+  container.style.backgroundColor = `rgb(${r++}, ${g++}, ${b++})`;
+ 
+}
+
+document.addEventListener('scroll', changeBackgroundColor);
+document.addEventListener('DOMContentLoaded', ()=>{
+    container.style.backgroundColor = `rgb(${r}, ${g}, ${b})`
+});
+    </script>
+</body>
+</html>
