@@ -3,59 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <title>Canvas paint app</title>
+    <link rel="stylesheet" href="./style.css">
+  
 </head>
 <body>
     <!-- Napisz prostą aplikację pozwalającą rysować punkty, prostokąty oraz linie w -->
 <!-- wybranych przez użytkownika kolorach. -->
-<canvas id='canvas'></canvas>
-<script>
+<div class="container">
+<div class='controls'>
 
-    const canvas = document.getElementById('canvas');
-    const context = canvas.getContext('2d'); 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let isDrawing = false;
-    
-context.strokeStyle = 'pink';
-context.lineWidth = 20;
-context.lineCap = 'round';
-context.lineJoin = 'round'
+<button data-mode="draw" id='draw' class="button-mode"></button>
+<button data-mode="rectangle" id='rectangle'  class="button-mode"></button>
+<button data-mode="line" id='line'  class="button-mode"></button>
 
 
-   const drawing = (e)=>{
-    
-     let x = e.offsetX;
-    let y = e.offsetY;
+<div class="paint-size-div">
+  <input id="paintSize" type="range" class="paint-size" min="1" max="50" value="5">
+  
+  <output for="paintSize" class='paint-size-val' ></output>
+  
+  <input type="color" class="colorsBtn" name="paint-color" id="paint-color">
+</div>
 
-    
-    console.log(isDrawing);   
-  if (!isDrawing) return;
+<button class='clear'>Clear</button>
 
-context.beginPath();
-context.moveTo(x,y);
-context.lineTo(x,y);
-context.closePath()
-context.stroke();
+  
 
-    };
+</div>
 
+<div class="canvasDiv">
+  <canvas id='canvas'></canvas>
+</div>
 
+</div>
 
-    canvas.addEventListener('mousedown', (e) => {
-  isDrawing = true;
+<script src="script.js"></script>
 
-});
-
-
-canvas.addEventListener('mousemove', drawing);
-canvas.addEventListener('mouseup', () => isDrawing = false);
-canvas.addEventListener('mouseout', () => isDrawing = false);
-
-
-
-</script>
 </body>
 </html>
