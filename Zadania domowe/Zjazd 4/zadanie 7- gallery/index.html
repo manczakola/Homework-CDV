@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+body{
+
+    width: 100vw;
+    margin:0;
+}
+        .gallery{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+        .filePreview{
+             width: 95vw;
+            margin: 1vw;
+
+        }
+
+        @media (min-width:750px) {
+            .filePreview{
+               max-width: 40vw;
+            }
+
+            .gallery{
+        
+            justify-content: space-around;
+        
+        }
+        }
+
+        .uploadDiv{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding:1rem;
+
+            background-color: rgba(236, 234, 231, 0.171);
+            box-shadow: 0 0 10px .2px rgba(169, 169, 169, 0.383);
+           
+
+        }
+
+
+        #upload{
+            font-size: 1rem;
+            margin: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        #upload::-webkit-file-upload-button {
+  visibility: hidden;
+}
+#upload::before {
+  content: 'Select photo';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 1px solid #999;
+  border-radius: 3px;
+  padding: 10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+#upload:hover::before {
+  border-color: black;
+}
+#upload:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+     
+
+    </style>
+</head>
+<body>
+<!--     
+Napisz skrypt, pozwalający użytkownikowi na utworzenie prostej galerii
+zdjęć poprzez załączanie plików graficznych. -->
+<div class="uploadDiv"><input id="upload" type="file" /></div>
+
+
+<div class='gallery'>
+
+</div>
+
+
+<script>
+
+var fileInput = document.querySelector('#upload');
+var filePreview = document.querySelector('.filePreview');
+var gallery = document.querySelector('.gallery');
+fileInput.addEventListener('change', function ($event) {
+
+
+var file = $event.target.files[0];
+var url = URL.createObjectURL(file);
+
+if(file){
+   var img=  document.createElement('img');
+   img.classList.add('filePreview');
+   gallery.appendChild(img);
+   img.src = url;
+
+}
+
+
+});
+
+
+</script>
+
+</body>
+</html>
